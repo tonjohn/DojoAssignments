@@ -32,4 +32,8 @@ while( nSec >= 60 )
 
 console.log( nMin + " minutes and " + nSec + " seconds" );
 
+var strTime = "<h1>"+nMin + ":" + nSec+"</h1>";
+
+$("#left_content").prepend(strTime);
+
 // 22:47

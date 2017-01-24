@@ -1,5 +1,7 @@
 
-
+body {
+	width: 1130px;
+}
 
 /* Header Styles */
 h1 {
@@ -60,8 +62,10 @@ h1 {
 
 /* Main Content */
 #maincontent {
-	background-color: purple;
+	background-color: #443355;
 	position: relative;
+	background: -webkit-radial-gradient(#9999aa, #443355);
+	background: radial-gradient(#9999aa, #443355); 
 }
 
 .row:nth-of-type(1) {
@@ -74,13 +78,15 @@ h2 {
 	background-color: grey;
 	margin: 0;
 	padding: 10px;
+	background: linear-gradient(lightgrey, grey, lightgrey);
 }
 
 .col {
 	display: inline-block;
 	margin: 10px;
 	vertical-align: top;
-	background-color: lightblue;
+	background-color: #aabbdd;
+	background: linear-gradient(#aabbdd, #eeeeee);
 }
 .row:nth-of-type(1) > .col {
 	width: 500px;
@@ -96,7 +102,7 @@ h2 {
 .row:nth-of-type(1) img {
 	width: 528px;
 	height: 233px;
-	border: 10px solid grey;
+	border: 10px solid lightgrey;
 	display: inline-block;
 	margin: 10px;
 }
@@ -115,10 +121,10 @@ button {
 	position: absolute;
 	bottom: 8px;
 	right: 10px;
-	background-color: navy;
+	background-color: #5d719b;
 	color: white;
-	box-shadow: 2px 3px 12px black;
-	border: 3px solid black;
+	box-shadow: 2px 3px 12px #19090d;
+	border: 3px solid #19090d;
 	border-radius: 5px;
 }
 

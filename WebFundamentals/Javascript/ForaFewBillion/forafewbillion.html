@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>For a Few Billion</title>
+		<meta name="description" content="JavaScript Assignment"/>
+
+		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	</head>
+	<body>
+		<h1>Check the console!</h1>
+		<pre id="log"></pre>
+		<script>
+			var g_SpewLvl = 1; 
+			function bjLog( msg, lvl = 1 )
+			{
+				if( lvl <= g_SpewLvl )
+				{
+					// log to the console like normal
+					console.log( msg );
+
+					var elLog;
+					// if #log exists, lets add the output to it!
+					if( elLog = document.getElementById("log") )
+					{
+						// Make a new p
+						var elChild = document.createElement('p');
+
+						// Give the new div some content
+						elChild.innerHTML = msg;
+						elLog.appendChild(elChild);
+					}
+					
+
+				}
+			}
+
+			function bIsValid( value )
+			{
+				var bValid = true;
+				if ( value == Infinity || value < 0 )
+				{
+					bValid = false;
+					bjLog("Cannot compute! ( " + value + " )");
+				}
+
+				return bValid;
+
+			}
+
+			function calcReward( nDays )
+			{
+				var flReward = 0.00;
+
+				if( !bIsValid( nDays ) )
+				{
+					bjLog("nDays: " + nDays, 2);
+					
+					return;
+				}
+
+				// loop is inefficient, should be flReward = nDays/Math.pow(10, 2);
+				for ( var i = 1; i <= nDays; i++ )
+				{
+					flReward+=0.01;
+				}
+				bjLog( flReward.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) );
+
+			}
+
+			function calcDays( flReward )
+			{
+				var nDays = 0;
+
+				if( !bIsValid(flReward) )
+				{
+					bjLog("flReward: " + flReward, 2);
+					
+					return;
+				}
+				// loop is inefficient, should be nDays = flReward*Math.pow(10, 2);
+				// for ( var i = flReward; i > 0; i-=0.01)
+				// {
+				// 	if( i % 10000 === 0 )
+				// 	{
+				// 		bjLog("Calculating...");
+				// 	}
+				// 	nDays++;
+				// }
+				nDays = flReward*Math.pow(10, 2);
+				bjLog(nDays + " days");
+			}
+
+			// Test our function!
+			var rgTestDays = [30,2504,1000000000, -5, Infinity];
+			var rgTestMoney = [10.51, 10000,1000000000, -13.37, Infinity];
+			
+			for ( var i = 0; i < rgTestDays.length; i++ )
+			{
+				bjLog( "calcReward( " + rgTestDays[i] + " )", 2 );
+				calcReward( rgTestDays[i] );
+			}
+
+			for ( var i = 0; i < rgTestMoney.length; i++ )
+			{
+				bjLog( "calcDays( " + rgTestMoney[i] + " )", 2 );
+				calcDays( rgTestMoney[i] );
+			}
+
+			
+			
+		</script>
+	</body>
+</html>

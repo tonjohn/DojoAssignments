@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>While You Wait</title>
+		<meta name="description" content="JavaScript Assignment"/>
+
+		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	</head>
+	<body>
+		<h1>Check the console!</h1>
+		<pre id="log"></pre>
+		<script>
+			var g_SpewLvl = 1; 
+			function bjLog( msg, lvl = 1 )
+			{
+				if( lvl <= g_SpewLvl )
+				{
+					// log to the console like normal
+					console.log( msg );
+
+					var elLog;
+					// if #log exists, lets add the output to it!
+					if( elLog = document.getElementById("log") )
+					{
+						// Make a new p
+						var elChild = document.createElement('p');
+
+						// Give the new div some content
+						elChild.innerHTML = msg;
+						elLog.appendChild(elChild);
+					}
+					
+
+				}
+			}
+
+			function party()
+			{
+				// ♪ღ♪*•.¸¸¸.•*¨¨*•.¸¸¸.•*•♪ღ♪¸.•*¨¨*•.¸¸¸.•*•♪ღ♪•*
+				// ♪ღ♪░H░A░P░P░Y░ B░I░R░T░H░D░A░Y░░♪ღ♪
+				// *•♪ღ♪*•.¸¸¸.•*¨¨*•.¸¸¸.•*•♪¸.•*¨¨*•.¸¸¸.•*•♪ღ♪•«
+				bjLog( "♪ღ♪*•.¸¸¸.•*¨¨*•.¸¸¸.•*•♪ღ♪¸.•*¨¨*•.¸¸¸.•*•♪ღ♪•*" );
+				bjLog( "♪ღ♪░H░A░P░P░Y░ B░I░R░T░H░D░A░Y░░♪ღ♪" );
+				bjLog( "*•♪ღ♪*•.¸¸¸.•*¨¨*•.¸¸¸.•*•♪¸.•*¨¨*•.¸¸¸.•*•♪ღ♪•«" );
+
+			}
+
+			function birthdayCountdown( daysUntilMyBirthday )
+			{
+				// For every day, print how many days left.
+				for( var nDays = daysUntilMyBirthday; nDays > 1; nDays-- )
+				{
+					// If it's more than 30 days, print a sad message.
+					// 60 days until my birthday. Such a long time... :(
+					var strMsg = nDays + " days until my birthday. Such a long time... :(";
+					if ( nDays < 5)
+					{
+						// If it's less than 5 days, SCREAM IT!
+						// 2 DAYS UNTIL MY BIRTHDAY!!!
+						strMsg = nDays + " DAYS UNTIL MY BIRTHDAY!!!";
+					}
+					else if ( nDays < 30 )
+					{
+						// If it's less than 30 days, sound excited!
+						// 20 day unitl my birthday! \o/
+						strMsg = nDays + " days until my birthday";
+						
+					}
+
+					bjLog( strMsg );
+				}
+				
+				bjLog( "MY BIRTHDAY IS TOMORROW!!!!!" );
+				party(); // ONCE IT'S YOUR BIRTHDAY HAVE PARTY!
+
+			}
+
+			// Test our function!
+			var nTestDays = 60;
+			birthdayCountdown( nTestDays );
+
+			
+			
+		</script>
+	</body>
+</html>

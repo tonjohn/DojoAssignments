@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>I Do Declare!</title>
+		<meta name="description" content="JavaScript Assignment"/>
+
+		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	</head>
+	<body>
+		<h1>Check the console!</h1>
+		<script>
+			var g_SpewLvl = 1; 
+			function bjLog( msg, lvl = 1 )
+			{
+				if( lvl <= g_SpewLvl )
+				{
+					console.log( msg );
+				}
+
+			}
+			// Declare variables of the following types:
+			// 4 Numbers
+			var nPositive = "34";
+			bjLog( "First number (int): " + nPositive );
+			var nNegative = "-2";
+			bjLog( "Second number (-int): " + nNegative );
+			var flPositive = "3.14";
+			bjLog( "Third number (fl): " + flPositive );
+			var flNegative = "-13.37";
+			bjLog( "Fourth number (-fl): " + flNegative );
+
+			// 3 Strings
+			var strEx1 = "Hello World!";
+			bjLog( "String 1: " + strEx1 );
+			var strEx2 = "I'm a string.";
+			bjLog( "String 2: " + strEx2 );
+			var strEx3 = " Goodbye? ";
+			bjLog( "String 3: " + strEx3 );
+
+			// 2 Booleans
+			var bIsBurtonCool = true;
+			bjLog( "First boolean: " + bIsBurtonCool );
+			var bIsCSSFun = false;
+			bjLog( "Second boolean: " + bIsCSSFun );
+
+			// 1 Undefined Variable
+			var wat;
+			bjLog( "Undefined variable: " + wat );
+			// Give the variables descriptive names (ex: string1 and string2)
+			// Print each one to the console with a description (ex: console.log("The First String:", string1);)
+			// Try to be creative! (don't use 1, 2, 3, and 4 for your numbers -- test out negatives or decimals!)
+			
+
+			
+
+			
+		</script>
+	</body>
+</html>

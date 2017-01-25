@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>If You Don't Mind</title>
+		<meta name="description" content="JavaScript Assignment"/>
+
+		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	</head>
+	<body>
+		<h1>Check the console!</h1>
+		<script>
+			var g_SpewLvl = 1; 
+			function bjLog( msg, lvl = 1 )
+			{
+				if( lvl <= g_SpewLvl )
+				{
+					console.log( msg );
+				}
+
+			}
+
+			function printTime( HOUR, MINUTE, PERIOD )
+			{
+				PERIOD = PERIOD.toUpperCase();
+				var strMinute = "It's ";
+				var strPeriod = " in the morning";
+				// 8:50 AM
+				// ...your program should print "It's almost 9 in the morning"
+				// 7:15 PM
+				// ...your program should print "It's just after 7 in the evening"
+				// If minutes less than 30, "just after" the hour, more than 30, "almost" the next hour
+				if( MINUTE < 15 )
+				{
+					strMinute = "It's just after "
+				}
+				else if ( MINUTE == 15 )
+				{
+					strMinute = "It's a quarter after "
+				}
+				else if ( MINUTE > 15 && MINUTE < 30 )
+				{
+					strMinute = "It's more than a quarter after "
+				}
+				else if ( MINUTE == 30 )
+				{
+					strMinute = "It's half passed "
+				}
+				else if ( MINUTE > 30 )
+				{
+					strMinute = "It's almost ";
+					HOUR++;
+				}
+
+				if( PERIOD == 'PM' )
+				{
+					strPeriod = ' in the evening'
+				}
+
+				if( HOUR == 12 && MINUTE == 0)
+				{
+					if( PERIOD == "PM" )
+					{
+						strMinute = "It's noon";
+
+					}
+					else {
+						strMinute = "Its midnight";
+					}
+					HOUR = "";
+					strPeriod = "";
+				}
+
+				bjLog( strMinute + HOUR + strPeriod );
+
+			}
+
+			var rgTest = [];
+			rgTest.push([8,50,'AM']);
+			rgTest.push([7,15,'PM']);
+			rgTest.push([5,30,'AM']);
+			rgTest.push([12,00,'pm']);
+
+			for(var i = 0; i < rgTest.length; i++)
+			{
+				bjLog("Test " + i );
+				bjLog( rgTest[i] );
+				printTime( rgTest[i][0], rgTest[i][1], rgTest[i][2] );
+			}
+
+			
+			
+		</script>
+	</body>
+</html>

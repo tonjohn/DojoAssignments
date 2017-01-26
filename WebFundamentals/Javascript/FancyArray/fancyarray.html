@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Fancy Array</title>
+		<meta name="description" content="JavaScript Assignment"/>
+
+		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	</head>
+	<body>
+		<h1>Check the console!</h1>
+		<pre id="log"></pre>
+		<script>
+			var g_SpewLvl = 1; 
+			function bjLog( msg, lvl = 1 )
+			{
+				if( lvl <= g_SpewLvl )
+				{
+					// log to the console like normal
+					console.log( msg );
+
+					var elLog;
+					// if #log exists, lets add the output to it!
+					if( elLog = document.getElementById("log") )
+					{
+						// Make a new p
+						var elChild = document.createElement('p');
+
+						// Give the new div some content
+						elChild.innerHTML = msg;
+						elLog.appendChild(elChild);
+					}
+					
+
+				}
+			}
+
+			function printArray( rgArr, strSymbol = "->", reversed = false )
+			{
+				var idx = 0;
+
+				if( typeof(strSymbol) === "boolean" )
+				{
+					reversed = strSymbol;
+					strSymbol = "->";
+				}
+
+				for ( var i = 0; i < rgArr.length; i++ )
+				{
+					idx = i;
+					if( reversed )
+					{
+						idx = (rgArr.length-1)-i;
+					}
+					// 2 -> James
+					bjLog( idx + " " + strSymbol + " " + rgArr[idx] );
+				}
+				
+			}
+
+			var rgTest = [ "James", "Jill", "Jane", "Jack" ];
+
+			bjLog( "Default" );
+			printArray( rgTest );
+
+			bjLog( "Custom Arrow" );
+			printArray( rgTest, "===>");
+
+			bjLog( "Reversed" );
+			printArray( rgTest, "->", true );
+
+			bjLog( "Shorthand Reverse" );
+			printArray( rgTest, true );
+
+
+			
+			
+		</script>
+	</body>
+</html>

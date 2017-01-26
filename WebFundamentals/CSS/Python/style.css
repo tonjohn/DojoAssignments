@@ -9,8 +9,18 @@ body {
 	color: white;
 }
 
+.wrapper {
+	width: 970px;
+	margin: 0px auto;
+}
+
+.bkwhite {
+	background-color: white;
+}
+
 div#header {
 	padding: 5px 15px;
+
 }
 
 div#logo {
@@ -118,7 +128,7 @@ input[type=submit] {
 
 #intro > div {
 	border-top: 3px solid blue;
-	margin: 0px 10px;
+	margin: 0px 60px;
 	width: 290px;
 	vertical-align: top;
 	padding: 5px 20px;

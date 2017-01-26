@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Random Chance</title>
+		<meta name="description" content="JavaScript Assignment"/>
+
+		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	</head>
+	<body>
+		<h1>Check the console!</h1>
+		<pre id="log"></pre>
+		<script>
+			var g_SpewLvl = 1; 
+			function bjLog( msg, lvl = 1 )
+			{
+				if( lvl <= g_SpewLvl )
+				{
+					// log to the console like normal
+					console.log( msg );
+
+					var elLog;
+					// if #log exists, lets add the output to it!
+					if( elLog = document.getElementById("log") )
+					{
+						// Make a new p
+						var elChild = document.createElement('p');
+
+						// Give the new div some content
+						elChild.innerHTML = msg;
+						elLog.appendChild(elChild);
+					}
+					
+
+				}
+			}
+
+			// Make a function that takes a number of quarters (1 quarter = 1 game).
+			function playSlotMachine( nQuarters, nCashout = 0 )
+			{
+				var randSpin;
+				var nWinnings;
+				// There is a 1 in 100 chance to win the slot machine (which will give you between 50 - 100 coins - use Math.random and Math.floor to pick a random number of coins).
+				while ( nQuarters )
+				{
+					nQuarters--; // consume a quarter at the start of every spin
+					var randSpin = Math.floor(Math.random()*100); // spin it to win it
+					bjLog( "nQuarters: " + nQuarters + " randSpin: " + randSpin, 2 );
+					// continue;
+
+					// 1 and 100 chance
+					if( randSpin % 100 == 1)
+					{
+						// YOU WON!
+						nWinnings = Math.floor((Math.random()*50)+50); // between 50 and 100 coins
+						nQuarters += nWinnings;
+						bjLog( "You won " + nWinnings + " quarters! Balance: " + nQuarters );
+
+					}
+
+					if( nCashout > 0 && nQuarters >= nCashout )
+					{				
+						// Bonus (Only If You Have Time):
+
+						// Let the user pass the number they are willing to leave with
+						// (ex: If they won the lottery and still have 40 coins, they will keep playing until they have collected 200 coins)
+						// Time to cashout
+						bjLog( "nCashout: " + nCashout + " nQuarters: " + nQuarters, 2 );
+						break;
+					}
+				}
+
+				// If they ever win, return the number of quarters (ex: they had 50 remaining quarters and won 90, so it should return 140).
+
+				// Return 0 if all the quarters were wasted.
+				return nQuarters;
+			}
+
+
+			var nResult = 0;
+
+			nResult = playSlotMachine( 50, 200 );
+			bjLog( "Test 1: " + nResult );
+			
+
+			nResult = playSlotMachine( 1000 );
+			bjLog( "Test 2: " + nResult );
+
+			// nResult = playSlotMachine( 5, 1 );
+			// bjLog( "Test 3: " + nResult );
+
+
+			
+			
+		</script>
+	</body>
+</html>

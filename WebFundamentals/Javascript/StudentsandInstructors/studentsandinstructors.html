@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Students and Instructors</title>
+		<meta name="description" content="JavaScript Assignment"/>
+
+		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	</head>
+	<body>
+		<h1>Check the console!</h1>
+		<pre id="log"></pre>
+		<script>
+			"use strict";
+			var g_SpewLvl = 1; 
+			function bjLog( msg, lvl = 1 )
+			{
+				if( lvl <= g_SpewLvl )
+				{
+					// log to the console like normal
+					console.log( msg );
+
+					var elLog;
+					// if #log exists, lets add the output to it!
+					if( elLog = document.getElementById("log") )
+					{
+						// Make a new p
+						var elChild = document.createElement('p');
+
+						// Give the new div some content
+						elChild.innerHTML = msg;
+						elLog.appendChild(elChild);
+					}	
+					
+
+				}
+			}
+
+			function printDirectory( rgUsers, strUsergroup = "Users" )
+			{
+				bjLog( strUsergroup );
+				for ( var i = 0; i < rgUsers.length; i++ )
+				{
+					bjLog( (i+1) + " - " + rgUsers[i].first_name + " " + rgUsers[i].last_name + " - " + (rgUsers[i].first_name.length+rgUsers[i].last_name.length));
+				}
+			}
+
+			function printFullDirectory( arg )
+			{
+				if ( arg.length )
+				{
+					for ( var i = 0; i < arg.length; i++ )
+					{
+						bjLog( arg[i].first_name + " " + arg[i].last_name );
+					}
+
+				}
+				else
+				{
+					// Plan A; support directories with N usergroups
+					for (var property in arg) 
+					{
+						if ( arg.hasOwnProperty(property) && arg[property].length ) 
+						{
+							//bjLog( property );
+							//bjLog( typeof arg[property] );
+
+							var rgData = arg[property];
+							bjLog( "\n" + property );
+							for ( var i = 0; i < rgData.length; i++ )
+							{
+								bjLog( (i+1) + " - " + rgData[i].first_name + " " + rgData[i].last_name + " - " + (rgData[i].first_name.length+rgData[i].last_name.length));
+
+							}
+							
+						}
+					}
+
+					// Plan B; hardcode the two usergroups in the assignment
+					// printDirectory( arg.Students, "Students" );
+					// printDirectory( arg.Instructors, "Instructors" );
+
+				}
+
+			}
+
+			var students = [ 
+				{first_name:  'Michael', last_name : 'Jordan'},
+				{first_name : 'John', last_name : 'Rosales'},
+				{first_name : 'Mark', last_name : 'Guillen'},
+				{first_name : 'KB', last_name : 'Tonel'}
+			];
+
+			var users = {
+				'Students': [ 
+					{first_name:  'Michael', last_name : 'Jordan'},
+					{first_name : 'John', last_name : 'Rosales'},
+					{first_name : 'Mark', last_name : 'Guillen'},
+					{first_name : 'KB', last_name : 'Tonel'}
+				],
+				'Instructors': [
+					{first_name : 'Michael', last_name : 'Choi'},
+					{first_name : 'Martin', last_name : 'Puryear'}
+				]
+			};
+
+			printFullDirectory( students );
+			bjLog( "\n------------------" );
+			printFullDirectory( users );
+			
+			
+		</script>
+	</body>
+</html>

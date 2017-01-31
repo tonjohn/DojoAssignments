@@ -49,7 +49,8 @@
 
 			function calcReward( nDays )
 			{
-				var flReward = 0.00;
+				var flRewardTotal = 0.01;
+				var flRewardAmt = flRewardTotal;
 
 				if( !bIsValid( nDays ) )
 				{
@@ -58,12 +59,18 @@
 					return;
 				}
 
-				// loop is inefficient, should be flReward = nDays/Math.pow(10, 2);
 				for ( var i = 1; i <= nDays; i++ )
 				{
-					flReward+=0.01;
+					if( flRewardAmt == Infinity || flRewardTotal == Infinity )
+					{
+						break;
+					}
+					//flRewardAmt*=2;
+					//flRewardTotal+=flRewardAmt;
+					flRewardTotal*=2;
+					bjLog("Day "+i+": " + flRewardTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) + "(  +" + flRewardAmt.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) +" )", 2 );
 				}
-				bjLog( flReward.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) );
+				bjLog( flRewardTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) );
 
 			}
 
@@ -77,8 +84,7 @@
 					
 					return;
 				}
-				// loop is inefficient, should be nDays = flReward*Math.pow(10, 2);
-				// for ( var i = flReward; i > 0; i-=0.01)
+				// for ( var i = flReward; i > 0; i/=2)
 				// {
 				// 	if( i % 10000 === 0 )
 				// 	{
@@ -86,9 +92,20 @@
 				// 	}
 				// 	nDays++;
 				// }
-				nDays = flReward*Math.pow(10, 2);
+				while ( flReward > 0.01 )
+				{
+
+					nDays++;
+					flReward = flReward / 2;
+					flReward = flReward.toFixed(2);
+				}
+				//nDays = flReward*Math.pow(10, 2);
 				bjLog(nDays + " days");
 			}
+
+			calcReward(30);
+			calcDays(10737418.24);
+			calcDays(10000.00);
 
 			// Test our function!
 			var rgTestDays = [30,2504,1000000000, -5, Infinity];

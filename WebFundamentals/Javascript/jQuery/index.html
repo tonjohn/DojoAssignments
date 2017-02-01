@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery Basics</title>
+		<meta name="description" content="">
+		<link rel="icon" 
+      type="image/png" 
+      href="http://tonjohn.com/favicon.png">
+		<script src="http://tonjohn.com/js/utilities.js"></script>
+		<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+		  <!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<header id="header">
+			 <nav>
+				<div class="nav-wrapper">
+				<a href="#" class="brand-logo">jQuery Basics</a>
+				</div>
+			</nav>
+		</header>
+		<div id="mainContent" class="container">
+			<div id="click" class="card-panel hoverable">
+				<h2>click</h2>
+				<button class="btn waves-effect waves-light">click</button><p class="default">Click the button.</p>
+				<blockquote>
+				<xmp>
+$("#click button").click(function(){
+	alert("You clicked the button! All buttons on this page use .click()");	
+});
+				</xmp>
+				</blockquote>
+			</div>
+			<div id="hide" class="card-panel hoverable">
+				<h2>hide</h2>
+				<button class="btn waves-effect waves-light">hide</button><p class="default">Click the button to hide this text.</p>
+				<xmp>
+$("#hide p").hide();
+				</xmp>
+			</div>
+			<div id="show" class="card-panel hoverable">
+				<h2>show</h2>
+				<button class="btn waves-effect waves-light">show</button><p class="default">Click the button to see the hidden text.</p>
+				<xmp>
+$("#show h3").show();
+				</xmp>
+				<h3 class="hidden">Oh hai there!</h3>
+			</div>
+			<div id="toggle" class="card-panel hoverable">
+				<h2>toggle</h2>
+				<button class="btn waves-effect waves-light">toggle</button><p class="default">Click the button to toggle the header</p>
+				<xmp>
+$("#toggle h2").toggle();
+				</xmp>
+			</div>
+			<div id="slideDown" class="card-panel hoverable">
+				<h2>slideDown</h2>
+				<button class="btn waves-effect waves-light">slideDown</button><p class="default">Click the button to slideDown a hidden image</p>
+				<xmp>
+$("#slideDown img").slideDown();
+				</xmp>
+				<img class="hidden" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/05/05fdf0b1aee92ab8b739a83356f9a60341cf2b62_medium.jpg" alt="hidden image">
+			</div>
+			<div id="slideUp" class="card-panel hoverable">
+				<h2>slideUp</h2>
+				<button class="btn waves-effect waves-light">slideUp</button><p class="default">Click the button to slideUp the image</p>
+				<xmp>
+$("#slideUp img").slideUp();
+				</xmp>
+				<img src="http://www.placecage.com/200/200" alt="slideUp image">
+			</div>
+			<div id="slideToggle" class="card-panel hoverable">
+				<h2>slideToggle</h2>
+				<button class="btn waves-effect waves-light">slideToggle</button><p class="default">Click the button to slidetoggle a hidden image</p>
+				<xmp>
+$("#slideToggle img").slideToggle();
+				</xmp>
+				<img class="hidden" src="https://avatars2.githubusercontent.com/u/7477471?v=3&s=200" alt="hidden image">
+			</div>
+			<div id="fadeIn" class="card-panel hoverable">
+				<h2>fadeIn</h2>
+				<button class="btn waves-effect waves-light">fadeIn</button><p class="default">Click the button to fade in a hidden image</p>
+				<xmp>
+$("#fadeIn img").fadeIn();
+				</xmp>
+				<img class="hidden" src="http://www.planwallpaper.com/static/images/22fe4638-d675-47f8-9726-5f43e27bb084.jpg" alt="hidden image">
+			</div>
+			<div id="fadeOut" class="card-panel hoverable">
+				<h2>fadeOut</h2>
+				<button class="btn waves-effect waves-light">fadeOut</button><p class="default">Click the button to fade out the image</p>
+				<xmp>
+$("#fadeOut img").fadeOut();
+				</xmp>
+				<img class="" src="http://www.fillmurray.com/200/300" alt="fade out image">
+			</div>
+			<div id="addClass" class="card-panel hoverable">
+				<h2>addClass</h2>
+				<button class="btn waves-effect waves-light">addClass</button><p class="default">Click the button to add class "red" to this paragraph</p>
+				<xmp>
+$("#addClass p").addClass("red-text");
+				</xmp>
+			</div>
+			<div id="before" class="card-panel hoverable">
+				<h2>before</h2>
+				<button class="btn waves-effect waves-light">before</button><p class="default">Click the button to add a paragraphn before this one.</p>
+				<xmp>
+$("#before p.default").before("<p>New paragraph!!!</p>");
+				</xmp>
+			</div>
+			<div id="after" class="card-panel hoverable">
+				<h2>after</h2>
+				<button class="btn waves-effect waves-light">after</button><p class="default">Click the button to add a paragraph after this one.</p>
+				<xmp>
+$("#after p.default").after("<p>New paragraph yo.</p>");
+				</xmp>
+			</div>
+			<div id="append" class="card-panel hoverable">
+				<h2>append</h2>
+				<button class="btn waves-effect waves-light">append</button><p class="default">Click the button to append a header to this div.</p>
+				<xmp>
+$("#append").append("<h4>New header!!!</h4>");
+				</xmp>
+			</div>
+			<div id="html" class="card-panel hoverable">
+				<h2>html</h2>
+				<button class="btn waves-effect waves-light">html</button><p class="default">Click the button to use .html() to add a span to this text.</p>
+				<xmp>
+var jqP = $("#html p");
+jqP.html("<span class=\"red\">" + jqP.text() + "</span> (span with class of red added)" );
+				</xmp>
+			</div>
+			<div id="attr" class="card-panel hoverable">
+				<h2>attr</h2>
+				<button class="btn waves-effect waves-light">attr</button><p class="default">Click the button to change the 'max' attribute to 50.</p>
+				<xmp>
+$("#attr progress").attr("max", 50);
+				</xmp>
+				<progress value="37" max="100">
+			</div>
+			<div id="val" class="card-panel hoverable">
+				<h2>val</h2>
+				<button class="btn waves-effect waves-light">val</button><p class="default">Click the button to get the value of the progress bar in the xmpvious section.</p>
+				<xmp>
+alert("Progress: " + $("#attr progress").val() );
+				</xmp>
+			</div>
+			<div id="text" class="card-panel hoverable">
+				<h2>text</h2>
+				<button class="btn waves-effect waves-light">text</button><p class="default">Click the button to change this text.</p>
+				<xmp>
+$("#text p").text("Taylor Swift is the best musical artist of the last decade.");
+				</xmp>
+			</div>
+			<div id="data" class="card-panel hoverable">
+				<h2>data</h2>
+				<button class="btn waves-effect waves-light">data</button><p class="default" data-name="TSwift">Click to view the hidden data!</p>
+				<xmp>
+alert( "Hidden Data: " + $("#data p").data("name") );
+				</xmp>
+			</div>
+		</div> <!-- mainContent end -->
+		<button id="reset" class="waves-effect waves-light btn-large red hidden">RESET</button>
+
+		<script>
+		//var jqPage;
+		$().ready(function(){
+			
+			$("button").click(function(){
+				if( !$("#reset").is(':visible') )
+				{
+					$("#reset").removeClass("hidden");
+				}
+			});
+			// .click
+			$("#click button").click(function(){
+				alert("You clicked the button! All buttons on this page use .click()");	
+			});
+			// .hide
+			$("#hide button").click(function(){
+				// $("#hide p").hide();
+				eval( $("#hide xmp").text() );
+				$(this).prop("disabled",true);
+			})
+			// .show
+			$("#show button").click(function(){
+				// $("#show h3").show();
+				eval( $("#show xmp").text() );
+				// $(this).prop("disabled",true);
+				$(this).addClass("disabled");
+			});
+			// .toggle
+			$("#toggle button").click(function(){
+				// $("#toggle h2").toggle();
+				eval( $("#toggle xmp").text() );
+			});
+			// .slideDown
+			$("#slideDown button").click(function(){
+				// $("#slideDown img").slideDown();
+				eval( $("#slideDown xmp").text() );
+				$(this).prop("disabled",true);
+			});
+			// .slideUp
+			$("#slideUp button").click(function(){
+				// $("#slideUp img").slideUp();
+				eval( $("#slideUp xmp").text() );
+				$(this).prop("disabled",true);
+			});
+			// .slideToggle
+			$("#slideToggle button").click(function(){
+				// $("#slideToggle img").slideToggle();
+				eval( $("#slideToggle xmp").text() );
+			})
+			// .fadeIn
+			$("#fadeIn button").click(function(){
+				// $("#fadeIn img").fadeIn();
+				eval( $("#fadeIn xmp").text() );
+				$(this).prop("disabled",true);
+			});
+			// .fadeOut
+			$("#fadeOut button").click(function(){
+				// $("#fadeOut img").fadeOut();
+				eval( $("#fadeOut xmp").text() );
+				$(this).prop("disabled",true);
+			});
+			// .addClass
+			$("#addClass button").click(function(){
+				// $("#addClass p").addClass("red");
+				eval( $("#addClass xmp").text() );
+				$(this).prop("disabled",true);
+			});
+			// .before
+			$("#before button").click(function(){
+				// $("#before p:last-child").before("<p>New paragraph!!!</p>");
+				eval( $("#before xmp").text() );
+			});
+			// .after
+			$("#after button").click(function(){
+				// $("#after p").after("<p>New paragraph yo.</p>");
+				eval( $("#after xmp").text() );
+			});
+			// .append
+			$("#append button").click( function(){
+				// $("#append").append("<h4>New header!!!</h4>");
+				eval( $("#append xmp").text() );
+			});
+			// .html
+			$("#html button").click( function(){
+				// var jqP = $("#html p");
+				// jqP.html("<span class=\"red\">" + jqP.text() + "</span> (span with class of red added)" );
+				eval( $("#html xmp").text() );
+				$(this).prop("disabled",true);
+			});
+			// .attr
+			$("#attr button").click( function(){
+				// $("#attr progress").attr("max", 50);
+				eval( $("#attr xmp").text() );
+				$(this).prop("disabled",true);
+			});
+			// .val
+			$("#val button").click(function(){
+				// alert("Progress: " + $("#attr progress").val() );
+				eval( $("#val xmp").text() );
+			});
+			// .text
+			$("#text button").click(function(){
+				// $("#text p").text("Taylor Swift is the best musical artist of the last decade.");
+				eval( $("#text xmp").text() );
+				$(this).prop("disabled",true);
+			});
+			// .data
+			$("#data button").click(function(){
+				// alert( "Hidden Data: " + $("#data p").data("name") );
+				eval( $("#data xmp").text() );
+			});
+
+			// jqPage = $("body > div").clone(true,true);
+			// Reset the page
+			$("#reset").click(function(){
+				//$('body').html(jqPage);
+				window.scrollTo(0, 0);
+				location.reload(true);
+
+			});
+		});
+		</script>
+	</body>
+</html>

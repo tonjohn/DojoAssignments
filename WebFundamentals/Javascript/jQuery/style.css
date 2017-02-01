@@ -1,0 +1,46 @@
+/*body {
+	padding: 10px;
+}
+body > div {
+	border-bottom: 3px solid black;
+}*/
+
+.brand-logo {
+	margin-left: 20px;
+}
+
+button {
+	margin: 20px;
+	cursor: pointer;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+p.default {
+	display: inline-block;
+}
+
+.hidden {
+	display: none;
+}
+
+/*.red {
+	color: red;
+}*/
+
+#reset {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    //padding: 10px 20px;
+    font-size: 2em;
+}
+
+/*#reset:hover {
+	color: white;
+	background: linear-gradient( rgba(0,0,255,1), rgba(0,0,255,0.3));
+}*/

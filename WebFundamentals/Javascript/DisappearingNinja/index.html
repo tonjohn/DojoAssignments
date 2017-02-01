@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Disappearing "Ninjas"</title>
+		<meta name="description" content="Click on an image to make it disappear. Click on the white space to make it reappear!">
+		<link rel="icon" 
+      type="image/png" 
+      href="http://tonjohn.com/favicon.png">
+		<script src="http://tonjohn.com/js/utilities.js"></script>
+		<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+		  <!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+		<style>
+			#board > div {
+				height: 200px;
+				width: 200px;
+				display: inline-block;
+				cursor: pointer;
+			}
+			#board > div:hover {
+				background-color: #bbdefb;
+			}
+			#board img {
+				cursor: pointer;
+			}
+
+		</style>
+	</head>
+	<body>
+	<header id="header">
+			 <nav>
+				<div class="nav-wrapper row">
+					<div class="col s12">
+						<a href="#" class="brand-logo">Disappearing "Ninjas"</a>
+					</div>
+				</div>
+			</nav>
+	</header>
+	<main id="mainContent" class="container">
+		<div id="board">
+			<div>
+				<img src="http://lorempixel.com/200/200/animals/1">
+			</div>
+			<div>
+				<img src="http://lorempixel.com/200/200/animals/2">
+			</div>
+			<div>
+				<img src="http://lorempixel.com/200/200/animals/3">
+			</div>
+			<div>
+				<img src="http://lorempixel.com/200/200/animals/4">
+			</div>
+			<div>
+				<img src="http://lorempixel.com/200/200/animals/5">
+			</div>
+			<div>
+				<img src="http://lorempixel.com/200/200/animals/6">
+			</div>
+			<div>
+				<img src="http://lorempixel.com/200/200/animals/7">
+			</div>
+			<div>
+				<img src="http://lorempixel.com/200/200/animals/8">
+			</div>
+		</div>
+		<button class="btn">Restore</button>
+	</main>
+	<script type="text/javascript">
+		$().ready(function(){
+			$("img").click(function(){
+				if( $(this).is(':visible') )
+				{
+					$(this).fadeOut('slow');
+					//event.stopPropagation();
+				}
+			});
+			$("#board > div").on('click',function(){
+				if( !$(this).children().is(':visible') )
+				{
+					$(this).children().css('display', 'none').css('visibility', 'visible').fadeIn(1000);
+				}
+			});
+
+			$("button").click(function(){
+				$("img").fadeIn();
+			});
+		});
+	</script>
+	</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Users</title>
+		<meta name="description" content="View and add users">
+		<link rel="icon" 
+      type="image/png" 
+      href="http://tonjohn.com/favicon.png">
+		<script src="http://tonjohn.com/js/utilities.js"></script>
+		<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+		  <!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+	<body>
+		<header id="header">
+			 <nav>
+				<div class="nav-wrapper row">
+					<div class="col s12">
+						<a href="#" class="brand-logo">Users</a>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<div id="mainContent" class="container">
+			<div id="users" class="section">
+				<table class="highlight">
+					<thead>
+						<tr>
+							<th data-field="id">First Name</th>
+							<th data-field="name">Last Name</th>
+							<th data-field="price">Email Address</th>
+							<th>Contact #</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Burton</td>
+							<td>Johnsey</td>
+							<td>social@tonjohn.com</td>
+							<td>214-350-6160</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			<div id="formContainer" class="section">
+				<h2 class="header teal-text">Add User</h2>
+				<div class="row">
+					<form class="col s12">
+						<div class="row">
+							<div class="input-field col s6">
+								<input id="first_name" type="text" class="validate">
+								<label for="first_name">First Name</label>
+							</div>
+							<div class="input-field col s6">
+								<input id="last_name" type="text" class="validate">
+								<label for="last_name">Last Name</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">phone</i>
+								<input id="phone" type="tel" class="validate">
+								<label for="phone">Phone</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">email</i>
+								<input id="email" type="email" class="validate">
+								<label for="email">Email</label>
+							</div>
+						</div>
+						<div class="row">
+							<input class="btn waves-effect waves-light" type="submit" value="Add">
+						</div>
+					</form>
+				</div>
+			</div> <!-- formContainer END -->
+		</div> <!-- mainContent END -->
+		<script type="text/javascript">
+			$().ready(function(){
+
+				$("form").submit(function(){
+					//alert("hello");
+					var jqInputs = $("input");
+					var elNewRow =	"<tr>" +
+							"<td>" + jqInputs[0].value + "</td>" +
+							"<td>" + jqInputs[1].value + "</td>" +
+							"<td>" + jqInputs[3].value + "</td>" +
+							"<td>" + jqInputs[2].value + "</td>" +
+						"</tr>";
+					$("tbody").append( elNewRow );
+
+					// TO DO: clear form;
+					jqInputs.not("input[type=submit]").val("").removeClass("valid");
+					return false;
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -17,21 +17,21 @@ function clearCache() {
 	localStorage.removeItem("pokemon");
 }
 
-function getPokemonImg( objPokemon, i ) {
+function getPokemonImg( objPokemon, i, selector ) {
 	var elImg = $('<img />', {
 		id: objPokemon.name,
 		src: POKEMON_IMG_URL + i + ".png",
 		alt: objPokemon.name,
 		title: objPokemon.name
 	});
-	$("body").append( elImg );
+	$(selector).append( elImg );
 }
 
-function renderPokemon() {
+function renderPokemon( selector ) {
 	if( typeof g_rgPokemon != undefined )
 	{
 		for (var i = 0; i < g_rgPokemon.length; i++) {
-			getPokemonImg(g_rgPokemon[i], i + 1);
+			getPokemonImg( g_rgPokemon[i], i + 1, selector );
 		}
 	}
 }
@@ -66,8 +66,7 @@ $().ready(function () {
 
 	getPokemonPromise().done( function(){
 		console.log("getPokemonPromise().done()")
-		renderPokemon();
+		renderPokemon("body");
 	});
 
 });
-

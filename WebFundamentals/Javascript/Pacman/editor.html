@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pacman: Level Editor</title>
+	<meta name="description" content="Create your own level and play it">
+	<link rel="icon"
+		  type="image/png"
+		  href="http://tonjohn.com/favicon.png">
+
+	<link rel="stylesheet" href="style.css">
+
+	<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<!--<script src="game.js?v=2"></script>-->
+	<script src="editor.js"></script>
+</head>
+<body>
+
+<h2>Level Name Here</h2>
+<div id="board"></div>
+<div id="tools">
+	<div class="coin"></div>
+	<div class="block"></div>
+	<div class="cherry"></div>
+	<div class="pacman"></div>
+	<button id="start">PLAY</button>
+</div>
+
+<script>
+	$().ready(function () {
+		$("#board").load("level/blank.html");
+	});
+	
+</script>
+</body>
+</html>

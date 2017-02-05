@@ -1,0 +1,121 @@
+body {
+	background-color: black;
+}
+
+h2 {
+	color: gray;
+}
+
+/* http://stackoverflow.com/questions/19038799/why-is-there-an-unexplainable-gap-between-these-inline-block-div-elements */
+.removeSpace {
+	font-size: 0;
+}
+
+.row > div, #tools > div {
+	height: 20px;
+	width: 20px;
+	display: inline-block;
+}
+
+.row > div:hover {
+	background-color: #5ccade;
+}
+
+.block {
+	background-color: blue;
+}
+
+.coin {
+	background-image: url(img/coin.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+
+}
+
+.cherry {
+	/*background-color: deeppink;*/
+	background-image: url(img/cherry.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.pacman {
+	background-image: url(img/pacman.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.pacman.right {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+
+.pacman.down {
+	transform: rotate(-90deg);
+}
+
+.pacman.up {
+	transform: rotate(90deg);
+}
+
+.ghost1 {
+	background-image: url(img/ghosts.gif) 0 0;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+
+/* EDITOR */
+#board, #tools {
+	display: inline-block;
+	border: 1px solid darkgray;
+}
+
+#tools {
+	background-color: #5ccade;
+	vertical-align: top;
+	height: 80px;
+	width: 80px;
+	padding: 5px;
+}
+
+#tools > div:hover {
+	cursor: copy;
+}
+
+#start {
+	display: block;
+	width: 100%;
+}
+
+.coinTool {
+	cursor: url(img/coin.gif), auto;
+}
+
+.blockTool {
+	cursor: cell;
+}
+
+.cherryTool {
+	cursor: url(img/cherry.png), auto;
+}
+
+.pacmanTool {
+	cursor: url(img/pacman.gif), auto;
+}
+
+#tools > div.disabled:hover {
+	cursor: not-allowed;
+}
+
+
+.drag {
+	background-color: pink;
+}
